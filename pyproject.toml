@@ -1,0 +1,47 @@
+[project]
+name = "baseline-env"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.12.*"
+dependencies = [
+    "jupyterlab",
+    "ipython",
+    "matplotlib",
+    "notebook",
+    "numpy",
+    "optuna",
+    "pandas",
+    "dask",
+    "fastparquet",
+    "lightgbm",
+    "pip",
+    "plotly",
+    "polars",
+    "requests",
+    "scikit-learn",
+    "scipy",
+    "seaborn",
+    "setuptools",
+    "slackweb",
+    "wandb",
+    "wheel",
+    "xgboost",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "transformers",
+    "datasets"
+]
+
+# pytorch index url
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+# strict pytorch to be installed from "pytorch-cu128"
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }

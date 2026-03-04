@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --partition=x-large-creator
 
 CONTAINER_IMAGE="testenv.sif"
 
@@ -11,7 +12,7 @@ echo "=== uv syncing (creating .venv) ==="
 # apptainer exec でコンテナ内の uv を呼び出す
 apptainer exec --nv --bind $(pwd):$(pwd) "$CONTAINER_IMAGE" \
     bash -c "cd $(pwd) && \
-             uv venv .venv && \
+             uv venv .venv --clear && \
              uv sync"
 
 echo "=== Setup Complete ==="
